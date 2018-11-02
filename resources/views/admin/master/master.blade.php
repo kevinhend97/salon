@@ -14,20 +14,21 @@
 	<link href="{{asset('css/material-dashboard.css?v=2.1.0')}}" rel="stylesheet" />
 </head>
 <body>
+	
 	@include('admin.master.header')
 	@include('admin.master.sidebar')
 	@yield('content')
 	@include('admin.master.footer')
 	
 	<!--   Core JS Files   -->
-  	<script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-  	<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-  	<script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-  	<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  	<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+  	<script src="{{ asset('js/popper.min.js') }}" type="text/javascript"></script>
+  	<script src="{{ asset('js/bootstrap-material-design-min.js') }}" type="text/javascript"></script>
+  	<script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
   	<!--  Notifications Plugin    -->
-	<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+	<script src="{{ asset('js/plugins/bootstrap-notify.js') }}"></script>
 	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-	<script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+	<script src="{{ asset('js/material-dashboard.min.js?v=2.1.0') }}" type="text/javascript"></script>
 	@yield('script')
 </body>
 </html>
