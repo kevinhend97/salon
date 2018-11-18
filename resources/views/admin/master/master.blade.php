@@ -14,6 +14,7 @@
 	<link href="{{asset('css/material-dashboard.css?v=2.1.0')}}" rel="stylesheet" />
 </head>
 <body>
+	
 	@include('admin.master.header')
 	@include('admin.master.sidebar')
 	@yield('content')
