@@ -65,7 +65,7 @@
 					<div class="form-group" id="confirm">
 						<label for="nama" class="col-md-3 control-label">Konfirmasi Password</label>
 						<div class="col-md-6">
-							<input id="password" type="password" name="confirmed" autofocus="autofocus" placeholder="Ex. password" class="form-control" maxlength="100" required="required">
+							<input id="confirPassword" type="password" name="confirmed" autofocus="autofocus" placeholder="Ex. password" class="form-control" maxlength="100" required="required">
 							<span class="help-block with-errors"></span>
 						</div>
 					</div>
@@ -94,7 +94,7 @@
 				</div>
 
 				<div class="modal-body">
-					<input type="hidden" id="id"  name="id">
+					<input type="hidden" id="id2"  name="id">
 					<div class="form-group">
 						<label for="nama" class="col-md-3 control-label">Nama</label>
 						<div class="col-md-6">

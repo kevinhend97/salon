@@ -24,5 +24,5 @@ Route::get('edit/{profile}/profile','ProfileController@edit')->name('profile.dat
 Route::post('edit/{profile}/update','ProfileController@update')->name('profile.update_data');
 
 //user controller
-Route::resource('users', 'UserController');
 Route::get('users/data','UserController@listData')->name('user.data');
+Route::resource('users', 'UserController');

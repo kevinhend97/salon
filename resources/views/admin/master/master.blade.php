@@ -33,6 +33,9 @@
   <link rel="stylesheet" href="{{asset('template/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  {{-- sweet alert --}}
+  <!--sweet alert-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert/sweetalert2.min.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -87,11 +90,13 @@
 <!-- AdminLTE App -->
 <script src="{{asset('template/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('template/dist/js/pages/dashboard.js')}}"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('template/dist/js/demo.js')}}"></script>
 
 <script type="text/javascript" src="{{asset('template/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<!--sweet alert-->
+<script type="text/javascript" src="{{ asset('sweetalert/sweetalert2.min.js') }}"></script>
 
 <div class="wrapper">
   @include('admin.master.header')

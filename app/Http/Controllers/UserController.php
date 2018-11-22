@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Hash;
-use App\Http\Controllers\Controller;
-use DB;
 use Auth;
+use Redirect;
 
 class UserController extends Controller
 {
@@ -16,7 +14,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         return view('admin.user.index');
     }
@@ -39,9 +37,7 @@ class UserController extends Controller
             $row[] = '<img src="uploads/avatar/'.$list->foto.'" class="img-circle" alt="User Image" height="50" width="50">';
             $row[] = '<div class="btn-group">
                 <a onclick="editForm('.$list->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                <a onclick="deleteData('.$list->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                <a onclick="showDetail('.$list->id.')" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                 </div>';
+                <a onclick="deleteData('.$list->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
             $data[] = $row;
         }
@@ -122,12 +118,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
          $profile = User::find($id);
-        //pengecekan akun
-         $jml = User::where('email', '=', $request['email'])->count();
-         if ($jml < 1) 
-         {
+        
+         
             //bagian update data name, username,dan email
             $profile->name = $request['name'];
             $profile->alamat = $request['alamat'];
@@ -135,12 +129,7 @@ class UserController extends Controller
             $profile->no_telp = $request['no_telp'];
             $profile->jabatan = $request['jabatan'];
             $profile->update();
-            echo json_encode(array('msg'=>'success'));
-         }
-         else
-         {
-            echo json_encode(array('msg'=>'error'));
-         }
+            
     }
 
     /**

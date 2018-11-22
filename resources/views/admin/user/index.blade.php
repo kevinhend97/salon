@@ -23,8 +23,7 @@ Pegawai
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form method="post" id="form-pegawai">
-                {{ csrf_field() }}
+              
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -41,7 +40,7 @@ Pegawai
                   <tbody>
                   </tbody>
                 </table>
-              </form>
+              
             </div>
           </div>
         </div>
