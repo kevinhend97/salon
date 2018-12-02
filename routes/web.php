@@ -26,3 +26,11 @@ Route::post('edit/{profile}/update','ProfileController@update')->name('profile.u
 //user controller
 Route::get('users/data','UserController@listData')->name('user.data');
 Route::resource('users', 'UserController');
+
+//layanan controller
+Route::get('layanan/data','LayananController@listData')->name('layanan.data');
+Route::resource('layanan', 'LayananController');
+
+//paket controller
+Route::get('paket/data','PaketController@listData')->name('paket.data');
+Route::resource('paket', 'PaketController');

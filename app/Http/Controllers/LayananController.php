@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Auth;
-use Redirect;
+use App\Layanan;
 
-class UserController extends Controller
+class LayananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,28 +14,25 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        return view('admin.layanan.index');
     }
 
     public function listData()
     {
-        $user = User::where('jabatan', '!=', 'Pemilik')->orderBy('id', 'asc')->get();
+        $layanan = Layanan::orderBy('nama_layanan', 'asc')->get();
         $no = 0;
         $data = array();
-        foreach($user as $list)
+        foreach($layanan as $list)
         {
             $no ++;
             $row = array();
             $row[] = $no;
-            $row[] = $list->name;
-            $row[] = $list->alamat;
-            $row[] = $list->no_telp;
-            $row[] = $list->jabatan;
-            $row[] = $list->email;
-            $row[] = '<img src="uploads/avatar/'.$list->foto.'" class="img-circle" alt="User Image" height="50" width="50">';
+            $row[] = $list->nama_layanan;
+            $row[] = $list->deskripsi;
+            $row[] = $list->harga;
             $row[] = '<div class="btn-group">
-                <a onclick="editForm('.$list->id.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                <a onclick="deleteData('.$list->id.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+                <a onclick="editForm('.$list->id_layanan.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                <a onclick="deleteData('.$list->id_layanan.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
 
             $data[] = $row;
         }
@@ -63,19 +58,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-         //untuk menyimpan data
-        $jml = User::where('email', '=', $request['email'])->count();
+        $jml = Layanan::where('nama_layanan', '=', $request['nama_layanan'])->count();
         //$jml2 = User::where('no_telp', '=', $request['no_telp'])->count();
         if($jml < 1)
         {
             $add = new User;
-            $add->name     = $request['name'];
-            $add->alamat   = $request['alamat'];
-            $add->no_telp  = $request['no_telp'];
-            $add->email    = $request['email'];
-            $add->jabatan  = $request['jabatan'];
-            $add->password = bcrypt($request['password']);
+            $add->nama_layanan = $request['nama_layanan'];
+            $add->deskripsi     = $request['deskripsi'];
+            $add->harga = $request['harga'];
             $add->save();
             echo json_encode(array('msg'=>'success'));
         }
@@ -104,8 +94,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $profile = User::find($id);
-        echo json_encode($profile);
+        $layanan = Layanan::find($id);
+        echo json_encode($layanan);
     }
 
     /**
@@ -117,18 +107,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-         $profile = User::find($id);
-        
+        $layanan = Layanan::find($id);
          
-            //bagian update data name, username,dan email
-            $profile->name = $request['name'];
-            $profile->alamat = $request['alamat'];
-            $profile->email = $request['email'];
-            $profile->no_telp = $request['no_telp'];
-            $profile->jabatan = $request['jabatan'];
-            $profile->update();
-            
+        //bagian update data name, username,dan email
+        $layanan->nama_layanan = $request['nama_layanan'];
+        $layanan->deskripsi     = $request['deskripsi'];
+        $layanan->harga      = $request['harga'];
+        $layanan->update();
     }
 
     /**
@@ -139,8 +124,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //bagian hapus pegawai
-        $profile=User::find($id);
-        $profile->delete();
+        $layanan = Layanan::find($id);
+        $layanan->delete();
     }
 }

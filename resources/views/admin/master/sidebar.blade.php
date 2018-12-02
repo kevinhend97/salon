@@ -21,95 +21,31 @@
           </a>
         </li>
         @if(Auth::user()->jabatan == "Pemilik")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa  fa-paper-plane-o"></i>
-            <span>Data Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-user"></i> Pengguna</a></li>
-            <li><a href=""><i class="fa fa-id-card-o"></i> Supplier</a></li>
-            <li><a href=""><i class="fa  fa-users"></i> Pelanggan</a></li>
-          </ul>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-user"></i> <span> Pengguna</span></a>
+        </li>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-book"></i> <span> Paket</span></a>
+        </li>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-cart-arrow-down"></i> <span> Barang</span></a>
+        </li>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-check-square-o"></i> <span> Reservasi</span></a>
+        </li>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-money"></i> <span> Transaksi</span></a>
+        </li>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-pie-chart"></i> <span> Laporan</span></a>
         </li>
         @elseif(Auth::user()->jabatan == "Kasir")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa  fa-paper-plane-o"></i>
-            <span>Data Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-id-card-o"></i> Supplier</a></li>
-            <li><a href=""><i class="fa  fa-users"></i> Pelanggan</a></li>
-          </ul>
+        <li>
+          <a href="{{ route('users.index') }}"><i class="fa fa-user"></i> <span> Reservasi</span></a>
         </li>
         @endif
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-briefcase"></i>
-            <span>Barang</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            @if(Auth::user()->jabatan == "Pemilik")
-            <li><a href=""><i class="fa fa-list"></i>Daftar Barang </a></li>
-            <li><a href=""><i class="fa fa-truck"></i> Pembelian</a></li>
-            <li><a href=""><i class="fa fa-shopping-cart"></i> Penjualan </a></li>
-            <li><a href=""><i class="fa fa-money"></i> Transaksi Penjualan </a></li>
-            <li><a href=""><i class="fa  fa-minus-square"></i> Piutang </a></li>
-            <li><a href=""><i class="fa fa-tags"></i> Kategori Barang</a></li>
-            @elseif(Auth::user()->jabatan == "Kasir")
-            <li><a href=""><i class="fa fa-shopping-cart"></i> Penjualan </a></li>
-            <li><a href=""><i class="fa fa-money"></i> Transaksi Penjualan </a></li>
-            <li><a href=""><i class="fa  fa-minus-square"></i> Piutang </a></li>
-            @elseif(Auth::user()->jabatan == "Karyawan")
-            <li><a href=""><i class="fa fa-list"></i>Daftar Barang </a></li>
-            <li><a href=""><i class="fa fa-truck"></i> Pembelian</a></li>
-            @endif
-          </ul>
-        </li>
-        @if(Auth::user()->jabatan == "Pemilik")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i>
-            <span>Laporan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa  fa-pie-chart"></i>Laporan Pembelian </a></li>
-            <li><a href=""><i class="fa fa-line-chart"></i>Laporan Penjualan </a></li>
-            <li><a href=""><i class="fa  fa-area-chart"></i>Laporan Transaksi </a></li>
-
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-gear"></i>
-            <span>Pengaturan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-map-marker"></i> Kota</a></li>
-            <li><a href=""><i class="fa fa-map-o"></i> Provinsi</a></li>
-            <li><a href=""><i class="fa  fa-balance-scale"></i> Satuan </a></li>
-          </ul>
-        </li>
-        @endif
-
+        
     </section>
     <!-- /.sidebar -->
   </aside>
