@@ -62,7 +62,7 @@ class LayananController extends Controller
         //$jml2 = User::where('no_telp', '=', $request['no_telp'])->count();
         if($jml < 1)
         {
-            $add = new User;
+            $add = new Layanan;
             $add->nama_layanan = $request['nama_layanan'];
             $add->deskripsi     = $request['deskripsi'];
             $add->harga = $request['harga'];
