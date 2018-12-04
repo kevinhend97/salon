@@ -18,6 +18,18 @@ class CreateDetailPaketTable extends Migration
             $table->integer('id_paket')->unsigned();
             $table->integer('id_layanan')->unsigned();
             $table->timestamps();
+
+            Schema::enableForeignKeyConstraints();
+
+            $table->foreign('id_paket')
+                ->references('id_paket')->on('paket')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('id_layanan')
+                ->references('id_layanan')->on('layanan')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -29,5 +41,6 @@ class CreateDetailPaketTable extends Migration
     public function down()
     {
         Schema::dropIfExists('detail_paket');
+        Schema::disableForeignKeyConstraints();   
     }
 }

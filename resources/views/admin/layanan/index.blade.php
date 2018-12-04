@@ -62,13 +62,39 @@ Layanan
    });
   });
 
-function hanyaAngka(evt) {
-  var charCode = (evt.which) ? evt.which : event.keyCode
-  if (charCode > 31 && (charCode < 48 || charCode > 57))
 
-  return false;
-  return true;
-  }
+  $('#modal-form form').validator().on('submit', function(e){
+    if(!e.isDefaultPrevented()){
+      var id = $('#id').val();
+      if(save_method == "add") url = "{{ route('layanan.store') }}";
+      else url = "layanan/"+id;
+         
+      $.ajax({
+        url : url,
+        type : "POST",
+        data : $('#modal-form form').serialize(),
+        success : function(data){
+          $('#modal-form').modal('hide');
+          table.ajax.reload();
+          swal({
+            title: 'Berhasil!',
+            text: 'Data Berhasil di Buat!',
+            type: 'success',
+            timer: '1500'
+          })
+        },
+        error : function(){
+          swal({
+            title: 'Oops...',
+            text: 'Ada yang Error!',
+            type: 'error',
+            timer: '1500'
+          })
+        }   
+      });
+      return false;
+    }
+  });
 
 //menampilkan form tambah
   function addForm()
@@ -78,51 +104,9 @@ function hanyaAngka(evt) {
     $('#modal-form').modal('show');
     $('#modal-form form')[0].reset();
     $('.modal-title').text('Tambah Layanan');
-
-    $('#modal-form form').validator().on('submit', function(e){
-      if(!e.isDefaultPrevented()){
-         
-         $.ajax({
-           url : "{{ route('layanan.store') }}",
-           type : "POST",
-           data : $('#modal-form form').serialize(),
-           dataType : 'JSON',
-           success : function(data){
-            if(data.msg=="error")
-            {
-              swal({
-                title: 'Maaf ...',
-                text: 'Layanan sudah pernah digunakan !',
-                type: 'error',
-                timer: '1500'
-              });  
-              $('#namaLayanan').focus().select();
-            }
-            else
-            {
-              $('#modal-form').modal('hide');
-              table.ajax.reload();
-              swal({
-                title: 'Success!',
-                text: 'Layanan Berhasil di Simpan!',
-                type: 'success',
-                timer: '1500'
-              })
-            }
-           },
-           error : function(){
-             swal({
-              title: 'Oops...',
-              text: 'Ada yang Error!',
-              type: 'error',
-              timer: '1500'
-            })
-           }
-         });
-         return false;
-     }
-   });
   }
+
+  
 
   //menampilkan data di edit form
 function editForm(id)
@@ -132,14 +116,13 @@ function editForm(id)
   $('#modal-form form')[0].reset();
   $.ajax({
     url : "layanan/"+id+"/edit",
-
     type : "GET",
     dataType : "JSON",
     success : function(data){
       $('#modal-form').modal('show');
       $('.modal-title').text('Edit Layanan');
 
-      $('#id').val(data.id);
+      $('#id').val(data.id_layanan);
       $('#namaLayanan').val(data.nama_layanan);
       $('#deskripsi').val(data.deskripsi);
       $('#harga').val(data.harga);
@@ -153,52 +136,6 @@ function editForm(id)
           })
     }
   });
-
-
-
-  $('#modal-form form').validator().on('submit', function(e){
-    if(!e.isDefaultPrevented()){
-       var id = $('#id').val();
-       $.ajax({
-         url : "layanan/"+id,
-         type : "POST",
-         data : $('#modal-form form').serialize(),
-         dataType : 'JSON',
-         success : function(data){
-           if(data.msg=="error")
-            {
-              swal({
-                title: 'Maaf ...',
-                text: 'Layanan sudah pernah digunakan !',
-                type: 'error',
-                timer: '1500'
-              });  
-              $('#namaLayanan').focus().select();
-            }
-            else
-            {
-              $('#modal-form').modal('hide');
-              table.ajax.reload();
-              swal({
-                title: 'Success!',
-                text: 'Akun Berhasil di Simpan!',
-                type: 'success',
-                timer: '1500'
-              })
-            }
-         },
-         error : function(){
-           swal({
-              title: 'Oops...',
-              text: 'Ada yang Error!',
-              type: 'error',
-              timer: '1500'
-            })
-         }
-       });
-       return false;
-   }
- });
 }
 
 

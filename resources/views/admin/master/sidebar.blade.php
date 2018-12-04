@@ -25,7 +25,7 @@
           <a href="{{ route('users.index') }}"><i class="fa fa-user"></i> <span> Pengguna</span></a>
         </li>
         <li>
-          <a href="{{ route('users.index') }}"><i class="fa fa-book"></i> <span> Paket</span></a>
+          <a href="{{ route('paket.index') }}"><i class="fa fa-book"></i> <span> Paket</span></a>
         </li>
         <li>
           <a href="{{ route('users.index') }}"><i class="fa fa-cart-arrow-down"></i> <span> Barang</span></a>
@@ -35,6 +35,9 @@
         </li>
         <li>
           <a href="{{ route('users.index') }}"><i class="fa fa-money"></i> <span> Transaksi</span></a>
+        </li>
+        <li>
+          <a href="{{ route('layanan.index') }}"><i class="fa fa-pie-chart"></i> <span> Layanan</span></a>
         </li>
         <li>
           <a href="{{ route('users.index') }}"><i class="fa fa-pie-chart"></i> <span> Laporan</span></a>

@@ -19,6 +19,17 @@ class CreateKonfirmasiTable extends Migration
             $table->integer('id_pelanggan')->unsigned();
             $table->integer('id_paket')->unsigned();
             $table->timestamps();
+
+            Schema::enableForeignKeyConstraints();
+            $table->foreign('id_pelanggan')
+                    ->references('id_pelanggan')->on('pelanggan')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+
+            $table->foreign('id_paket')
+                    ->references('id_paket')->on('paket')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
         });
     }
 
@@ -30,5 +41,6 @@ class CreateKonfirmasiTable extends Migration
     public function down()
     {
         Schema::dropIfExists('konfirmasi');
+        Schema::disableForeignKeyConstraints();   
     }
 }
