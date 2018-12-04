@@ -29,7 +29,7 @@ class LayananController extends Controller
             $row[] = $no;
             $row[] = $list->nama_layanan;
             $row[] = $list->deskripsi;
-            $row[] = $list->harga;
+            $row[] = "Rp.".number_format($list->harga);
             $row[] = '<div class="btn-group">
                 <a onclick="editForm('.$list->id_layanan.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
                 <a onclick="deleteData('.$list->id_layanan.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
