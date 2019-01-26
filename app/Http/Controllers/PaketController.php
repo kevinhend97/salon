@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paket;
+use App\DetailPaket;
 use Auth;
 use Redirect;
 
@@ -19,29 +20,7 @@ class PaketController extends Controller
         return view('admin.paket.index');
     }
 
-    public function listData()
-    {
-        $paket = Paket::orderBy('id_paket', 'asc')->get();
-        $no = 0;
-        $data = array();
-        foreach($paket as $list)
-        {
-            $no ++;
-            $row = array();
-            $row[] = $no;
-            $row[] = $list->nama_paket;
-            $row[] = $list->gambar;
-            $row[] = $list->keterangan;
-            $row[] = $list->harga;
-            $row[] = '<div class="btn-group">
-                <a onclick="editForm('.$list->id_paket.')" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                <a onclick="deleteData('.$list->id_paket.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
-
-            $data[] = $row;
-        }
-        $output = array("data"=> $data);
-        return response()->json($output);
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -71,6 +50,21 @@ class PaketController extends Controller
             $add->keterangan = $request['keterangan'];
             $add->harga      = $request['harga'];
             $add->save();
+
+            $detailPaket = new DetailPaket;
+            $idPaket = Paket::where('nama_paket', $request['nama_paket'])->pluck('id_paket')->first();
+
+            $data = foreach(count($request['id_layanan']) as $layanan)
+            {
+                $detailPaket->id_paket = $idPaket;
+                $detailPaket->id_layanan = $request['layanan'];
+                $detailPaket->save();
+            }
+
+            dd($data);
+
+
+            
             echo json_encode(array('msg'=>'success'));
         }
         else
@@ -114,12 +108,12 @@ class PaketController extends Controller
         $paket = Paket::find($id);
         
          
-            //bagian update data name, username,dan email
-            $paket->nama_paket = $request['nama_paket'];
-            $paket->gambar     = $request['gambar'];
-            $paket->keterangan = $request['keterangan'];
-            $paket->harga      = $request['harga'];
-            $paket->update();
+        //bagian update data name, username,dan email
+        $paket->nama_paket = $request['nama_paket'];
+        $paket->gambar     = $request['gambar'];
+        $paket->keterangan = $request['keterangan'];
+        $paket->harga      = $request['harga'];
+        $paket->update();
     }
 
     /**
