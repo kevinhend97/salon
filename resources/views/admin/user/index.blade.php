@@ -148,9 +148,6 @@ function editForm(id)
       $('#email2').val(data.email).removeAttr("disabled");
       $('#notelp2').val(data.no_telp).removeAttr("disabled");
       $('#jabatan2').val(data.jabatan).removeAttr("disabled");
-      $('#tombol').removeAttr("hidden");
-      
-
     },
     error : function(){
       swal({
@@ -173,27 +170,14 @@ function editForm(id)
          data : $('#modal-form2 form').serialize(),
          dataType : 'JSON',
          success : function(data){
-           if(data.msg=="error")
-            {
-              swal({
-                title: 'Maaf ...',
-                text: 'Email sudah pernah digunakan !',
-                type: 'error',
-                timer: '1500'
-              });  
-              $('#username').focus().select();
-            }
-            else
-            {
-              $('#modal-form').modal('hide');
-              table.ajax.reload();
-              swal({
-                title: 'Success!',
-                text: 'Akun Berhasil di Simpan!',
-                type: 'success',
-                timer: '1500'
-              })
-            }
+          $('#modal-form2').modal('hide');
+          table.ajax.reload();
+          swal({
+          title: 'Success!',
+          text: 'Akun Berhasil di Simpan!',
+          type: 'success',
+          timer: '1500'
+          })   
          },
          error : function(){
            swal({
