@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paket;
+use App\Layanan;
 use App\DetailPaket;
 use Auth;
 use Redirect;
@@ -17,19 +18,31 @@ class PaketController extends Controller
      */
     public function index()
     {
-        return view('admin.paket.index');
+        $layanan = Layanan::orderBy('nama_layanan', 'asc')->get();
+        return view('admin.paket.index', compact('layanan'));
     }
 
-    
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function listData()
     {
-        //
+        $layanan = Paket::orderBy('nama_paket', 'asc')->get();
+        $no = 0;
+        $data = array();
+        foreach($layanan as $list)
+        {
+            $no ++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $list->nama_paket;
+            $row[] = '<img src="../storage/uploads/paket/'.$list->gambar.'" class="img-thumbnail" alt="'.$list->gambar.'">';
+            $row[] = $list->keterangan;
+            $row[] = "Rp.".number_format($list->harga);
+            $row[] = '<div class="btn-group">
+                <a onclick="deleteData('.$list->id_paket.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
+
+            $data[] = $row;
+        }
+        $output = array("data"=> $data);
+        return response()->json($output);
     }
 
     /**
@@ -40,31 +53,39 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
+        // Simpan Tabel Paket
         $jml = Paket::where('nama_paket', '=', $request['nama_paket'])->count();
-        //$jml2 = User::where('no_telp', '=', $request['no_telp'])->count();
         if($jml < 1)
         {
-            $add = new User;
+            $add = new Paket;
             $add->nama_paket = $request['nama_paket'];
-            $add->gambar     = $request['gambar'];
             $add->keterangan = $request['keterangan'];
             $add->harga      = $request['harga'];
-            $add->save();
 
-            $detailPaket = new DetailPaket;
-            $idPaket = Paket::where('nama_paket', $request['nama_paket'])->pluck('id_paket')->first();
-
-            $data = foreach(count($request['id_layanan']) as $layanan)
+            // Jika Memiliki Sebuah Foto
+            if ($request->hasFile('gambar_paket')) 
             {
-                $detailPaket->id_paket = $idPaket;
-                $detailPaket->id_layanan = $request['layanan'];
-                $detailPaket->save();
+                $gambarPaket = $request->file('gambar_paket');
+                $namaGambarPaket = "Paket".$request['nama_paket']."".time().'.'.request()
+                                ->gambar_paket
+                                ->getClientOriginalExtension();
+                $lokasiPenyimpananFile = storage_path('uploads/paket');
+                
+                $gambarPaket->move($lokasiPenyimpananFile, $namaGambarPaket);
+                
+                $add->gambar = $namaGambarPaket;
             }
 
-            dd($data);
+            $add->save();
 
-
-            
+            // Simpan pada tabel Detail_Paket
+            foreach($request['jenis_layanan'] as $layanan)
+            {
+                $simpanDetailPaket = new DetailPaket;
+                $simpanDetailPaket->id_paket = $add->id_paket;
+                $simpanDetailPaket->id_layanan = $layanan;
+                $simpanDetailPaket->save();
+            }            
             echo json_encode(array('msg'=>'success'));
         }
         else
@@ -105,15 +126,35 @@ class PaketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $paket = Paket::find($id);
-        
-         
-        //bagian update data name, username,dan email
-        $paket->nama_paket = $request['nama_paket'];
-        $paket->gambar     = $request['gambar'];
-        $paket->keterangan = $request['keterangan'];
-        $paket->harga      = $request['harga'];
-        $paket->update();
+        $ubahPaket = Paket::find($id);
+        $ubahPaket->nama_paket = $request['nama_paket'];
+        $ubahPaket->keterangan = $request['keterangan'];
+        $ubahPaket->harga      = $request['harga'];
+
+        // Jika Memiliki Sebuah Foto
+        if ($request->hasFile('gambar_paket')) 
+        {
+            $gambarPaket = $request->file('gambar_paket');
+            $namaGambarPaket = "Paket".$request['nama_paket']."".time().'.'.request()
+                                ->gambar_paket
+                                ->getClientOriginalExtension();
+            $lokasiPenyimpananFile = storage_path('uploads/paket');
+                
+            $gambarPaket->move($lokasiPenyimpananFile, $namaGambarPaket);
+                
+            $ubahPaket->gambar = $namaGambarPaket;
+        }
+
+        $ubahPaket->update();
+
+        // Simpan pada tabel Detail_Paket
+        foreach($request['jenis_layanan'] as $layanan)
+        {
+            $ubahDetailPaket = DetailPaket::find($ubahPaket->id);
+
+            dd($ubahDetailPaket);
+        }            
+        echo json_encode(array('msg'=>'success'));
     }
 
     /**
@@ -124,8 +165,23 @@ class PaketController extends Controller
      */
     public function destroy($id)
     {
-        //
         $paket = Paket::find($id);
+        
+        // Mengambil data Gambar dan menghapus Gambar
+        $namaGambarPaket = Paket::where('id_paket', $id)->pluck('gambar')->first();
+        if(!empty($namaGambarPaket))
+        {
+            unlink(storage_path('../storage/uploads/paket/'.$namaGambarPaket));
+        }
+
+        // Hapus Paket
         $paket->delete();
+
+        // Hapus Detail Paket
+        $hapusDetailPaket = DetailPaket::where('id_paket', '=', $id)->get();
+        foreach ($hapusDetailPaket as $dataDetailPaket) 
+        {
+            $dataDetailPaket->delete();
+        }
     }
 }

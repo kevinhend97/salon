@@ -27,13 +27,12 @@ Paket
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th align="center">No</th>
-                      <th align="center">Nama Paket</th>
-                      <th align="center">Isi Layanan</th>
-                      <th align="center">Gambar</th>
-                      <th align="center">Keterangan</th>
-                      <th align="center">Harga</th>
-                      <th align="center">Pilihan</th>
+                      <th class="text-center">No</th>
+                      <th class="text-center">Nama Paket</th>
+                      <th class="text-center">Gambar</th>
+                      <th class="text-center">Keterangan</th>
+                      <th class="text-center">Harga</th>
+                      <th class="text-center">Pilihan</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -130,8 +129,7 @@ function editForm(id)
 
       $('#id').val(data.id_paket);
       $('#namaPaket').val(data.nama_paket);
-      $('#gambar').val(data.gambar);
-      $('#kterangan').val(data.keterangan);
+      $('#keterangan').val(data.keterangan);
       $('#harga').val(data.harga);
     },
     error : function(){
@@ -185,6 +183,15 @@ function deleteData(id){
     }
   });
 }
+
+// Script Tambahan
+function hanyaAngka(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+  return false;
+  return true;
+  }
 
 
 </script>
