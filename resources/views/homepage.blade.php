@@ -10,7 +10,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4>Violet Salon</h4>
+					<h4>Salon Violet</h4>
 					<img src="{{ asset('homepage/images/11.jpg') }}" class="img-responsive">
 					<h5>Neque porro quisquam est qui dolorem </h5>
 					<p>Ut in ligula sollicitudin, auctor elit vel, mollis tortor. Nullam id magna in eros mollis porttitor vel et eros.Phasellus
@@ -27,9 +27,9 @@
 	<div class="practice-areas">
 		<div class="container">
 			<div class="wthree_head_section">
-				<h3 class="w3l_header">Our <span>Services</span></h3>
-				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
-and skin care services will suit every beauty need.</p>
+				<h3 class="w3l_header">Layanan <span>Kami</span></h3>
+				<p>Manjakan diri Anda dengan perawatan rambut 
+dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan anda.</p>
 			</div>
 			<div class="area-main">
 				<div class="col-md-6 area-inner">
@@ -37,8 +37,7 @@ and skin care services will suit every beauty need.</p>
 					</div>
 					<div class="area-right p1">
 						<h5>FACIAL</h5>
-						<p class="para-w3-agile">Phasellus sed iaculis nibh, non suscipit tortor. Aenean ante massa, lobortis et dolor eget, sollicitudin luctus arcu.
-							Donec eros tortor, ultrices in lectus quis, aliquet commodo lectus.</p>
+						<p class="para-w3-agile">Rasakan perawatan wajah yang nyaman dan sesuai pada kulih wajah untuk penuhi kebutuhan cantik anda.</p>
 					</div>
 				</div>
 				<div class="col-md-6 area-inner">
@@ -46,8 +45,7 @@ and skin care services will suit every beauty need.</p>
 					</div>
 					<div class="area-right p2">
 						<h5>MAKEUP</h5>
-						<p class="para-w3-agile">Phasellus sed iaculis nibh, non suscipit tortor. Aenean ante massa, lobortis et dolor eget, sollicitudin luctus arcu.
-							Donec eros tortor, ultrices in lectus quis, aliquet commodo lectus.</p>
+						<p class="para-w3-agile">Jadikan dirimu Tercantik dengan riasan dan sentuhan terbaik kami yang sudah berpengalaman dengan Penata Rias yang sudah Profesional dan terbaik di bidangnya.</p>
 					</div>
 				</div>
 			</div>
@@ -81,7 +79,7 @@ and skin care services will suit every beauty need.</p>
 			<h3>Nisl amet dolor sit ipsum veroeros sed blandit</h3>
 			<p>Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
 			<div class="botton">
-				<a href="about.html">About Us</a>
+				<a href="{{ url('/about') }}">Tentang Kami</a>
 			</div>
 		</div>
 	</div>

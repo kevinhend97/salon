@@ -1,4 +1,4 @@
-/*--
+--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -2222,6 +2222,13 @@ img.zoom-img:hover {
 }
 /*--//image-zoom--*/
 /*--//gallery--*/
+
+/*-- Booking --*/
+.booking{
+	padding: 5em 0;
+}
+/*-- //Booking --*/
+
 /*-- contact --*/
 .contact {
     padding: 5em 0;
@@ -3379,4 +3386,4 @@ p.copyright {
     font-size: 24px;
 }
 }
-/*--responsive--*/
+/*--responsive--

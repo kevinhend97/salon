@@ -46,10 +46,7 @@
 					<div class="form-group">
 						<label for="nama" class="col-md-3 control-label">Jabatan</label>
 						<div class="col-md-6">
-							<select id="jabatan" name="jabatan" class="form-control">
-								<option>--- Pilih ---</option>
-								<option value="Karyawan">Karyawan</option>
-							</select>
+							<p>Karyawan</p>
 							<span class="help-block with-errors"></span>
 						</div>
 					</div>

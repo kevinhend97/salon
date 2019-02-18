@@ -74,7 +74,7 @@ class UserController extends Controller
             $add->alamat   = $request['alamat'];
             $add->no_telp  = $request['no_telp'];
             $add->email    = $request['email'];
-            $add->jabatan  = $request['jabatan'];
+            $add->jabatan  = "Karyawan";
             $add->password = bcrypt($request['password']);
             $add->save();
             echo json_encode(array('msg'=>'success'));
@@ -124,7 +124,7 @@ class UserController extends Controller
             $profile->alamat = $request['alamat'];
             $profile->email = $request['email'];
             $profile->no_telp = $request['no_telp'];
-            $profile->jabatan = $request['jabatan'];
+            $profile->jabatan = "Karyawan";
             $profile->update();
             
     }

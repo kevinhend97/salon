@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Violet Salon - @yield('title')</title>
+	<title>Salon Violet - @yield('title')</title>
 
 	<!-- Meta Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,11 +46,11 @@
 			<div class="container">
 				<div class="header-bottom-agileits">
 					<div class="w3-logo">
-						<h1><a href="#">Salon Violet</a></h1>
+						<h1><a href="{{ url('/') }}">Salon Violet</a></h1>
 					</div>
 					<div class="address">
-						<p>Jalan Jend. Soedirman.</p>
-						<p class="para-y"><a href="#">Get more info</a></p>
+						<p>Jalan Jend. Soedirman 160.</p>
+						<p class="para-y"><a href="{{ url('/about') }}">Dapatkan Info Lengkapnya</a></p>
 					</div>
 					<div class="nav-contact-w3ls">
 						<p>+62 1111 2222 333<span class="fa fa-phone" aria-hidden="true"></span></p>
@@ -80,11 +80,11 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a class="active" href="{{ url('/') }}">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-						<li><a href="#">Booking</a></li>
-						<li><a href="#">Gallery</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="{{ url('about') }}">Tentang Kami</a></li>
+						<li><a href="{{ url('/service') }}">Layanan</a></li>
+						<li><a href="{{ url('/booking') }}">Booking</a></li>
+						<li><a href="{{ url('/gallery') }}">Galeri</a></li>
+						<li><a href="{{ url('/contact') }}">Kontak</a></li>
 					</ul>
 
 				</div>
@@ -106,7 +106,7 @@
 										<h2>Enjoy Professional Beauty Services!</h2>
 										<p>Providing expert skin care advice & beauty services using natural products to cater for any skin.</p>
 										<div class="botton">
-											<a href="contact.html">Contact Now</a>
+											<a href="{{ url('/contact') }}">Contact Now</a>
 										</div>
 									</div>
 								</li>
@@ -116,7 +116,7 @@
 										<h2>Are You Planning to Pamper Yourself?</h2>
 										<p>Providing expert skin care advice & beauty services using natural products to cater for any skin.</p>
 										<div class="botton">
-											<a href="contact.html">Contact Now</a>
+											<a href="{{ url('/contact') }}">Contact Now</a>
 										</div>
 									</div>
 								</li>
@@ -126,7 +126,7 @@
 										<h2>Enjoy Professional Beauty Services!</h2>
 										<p>Providing expert skin care advice & beauty services using natural products to cater for any skin.</p>
 										<div class="botton">
-											<a href="contact.html">Contact Now</a>
+											<a href="{{ url('/contact') }}">Contact Now</a>
 										</div>
 									</div>
 								</li>
@@ -160,11 +160,12 @@
 					</ul>
 				</div>
 				<div class="col-md-4 w3layouts_footer_grid">
-					<h2>Subscribe <span>Newsletter</span></h2>
-					<p>By subscribing to our mailing list you will always get latest news from us.</p>
-					<form action="#" method="post">
-						<input type="email" name="Email" placeholder="Enter your email..." required="">
-						<button class="btn1"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+					<h2>Ikuti <span>Info dan Promosi Kami</span></h2>
+					<p>Dapatkan Info, tips dan promosi kami dengan mengisi e-mail.</p>
+					<form action="{{ route('suscribe.store') }}" method="post">
+						@csrf
+						<input type="email" name="email" placeholder="Masukkan E-mail" required="">
+						<button type="submit" class="btn1"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
 						<div class="clearfix"> </div>
 					</form>
 				</div>
