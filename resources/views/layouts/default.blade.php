@@ -82,7 +82,7 @@
 						<li><a class="active" href="{{ url('/') }}">Home</a></li>
 						<li><a href="{{ url('about') }}">Tentang Kami</a></li>
 						<li><a href="{{ url('/service') }}">Layanan</a></li>
-						<li><a href="{{ url('/booking') }}">Booking</a></li>
+						<li><a href="{{ route('reservation.index') }}">Reservasi</a></li>
 						<li><a href="{{ url('/gallery') }}">Galeri</a></li>
 						<li><a href="{{ url('/contact') }}">Kontak</a></li>
 					</ul>

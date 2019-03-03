@@ -7,13 +7,13 @@
 <div class="about">
 	<div class="container">
 	<div class="wthree_head_section">
-				<h3 class="w3l_header">About <span>Us</span></h3>
+				<h3 class="w3l_header">Tentang <span>Kami</span></h3>
 				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
 and skin care services will suit every beauty need.</p>
 			</div>
 		<div class="ab-agile">
 			<div class="col-md-6 aboutleft">
-				<h3>Welcome to Salon</h3>
+				<h3>Selamat datang di Salon Violet</h3>
 				<p class="para1">Donec bibendum velit quis diam venenatis, vulputate aliquam sapien blandit. 
 				Etiam dui massa, vehicula a convallis a, facilisis vitae neque.Pellentesque sit amet 
 				odio quis libero eleifend congue at ac justo. Suspendisse posuere congue accumsan Vulputate aliquam sapien. </p>
@@ -41,8 +41,8 @@ and skin care services will suit every beauty need.</p>
 
 <!-- Team section -->
 <section class="team" >
-	<div class="container">
 		<div class="wthree_head_section">
+	<div class="container">
 				<h3 class="w3l_header">Our <span>Team</span></h3>
 				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
 and skin care services will suit every beauty need.</p>

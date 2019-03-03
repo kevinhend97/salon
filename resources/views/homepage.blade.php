@@ -76,8 +76,8 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 	<!-- wthree-mid -->
 	<div class="wthree-mid jarallax">
 		<div class="container">
-			<h3>Nisl amet dolor sit ipsum veroeros sed blandit</h3>
-			<p>Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+			<h3>Tentang Salon Violet</h3>
+			<p>Salon Violet berdiri sejak tahun 2008, kami menyediakan galeri foto agar anda dapat melihat beberapa hasil pekerjaan kami.</p>
 			<div class="botton">
 				<a href="{{ url('/about') }}">Tentang Kami</a>
 			</div>
@@ -88,9 +88,8 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 	<div class="w3ls-section wthree-pricing" id="pricing">	
 		<div class="container">
 			<div class="wthree_head_section">
-				<h3 class="w3l_header">Packages <span>Pricing</span></h3>
-				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
-and skin care services will suit every beauty need.</p>
+				<h3 class="w3l_header">Harga <span>Paket</span></h3>
+				<p>Percantik diri dengan perawatan kami yang sudah kami sediakan untuk rambut cantikmu.</p>
 			</div>
 			<div class="pricing-grids-info">
 								<div class="pricing-grid grid-one">
@@ -176,7 +175,7 @@ and skin care services will suit every beauty need.</p>
 	<div class="banner-dott1">
 		<div class="container">
 		<div class="wthree_head_section">
-				<h3 class="w3l_header two">Our <span>Statistics</span></h3>
+				<h3 class="w3l_header two">Statistik <span>Kami</span></h3>
 				<p class="tho">Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
 and skin care services will suit every beauty need.</p>
 			</div>
@@ -240,7 +239,7 @@ and skin care services will suit every beauty need.</p>
 		<div class="container">
 			<!-- Owl-Carousel -->
 			<div class="wthree_head_section">
-				<h3 class="w3l_header">What <span>People Say</span></h3>
+				<h3 class="w3l_header">Penilaian <span>orang-orang tantang kami</span></h3>
 				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
 and skin care services will suit every beauty need.</p>
 			</div>

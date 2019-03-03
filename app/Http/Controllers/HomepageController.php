@@ -15,7 +15,7 @@ class HomepageController extends Controller
         $email = $request->email;
 
         $data = array(
-            'name' => 'Salon Violet',
+            'name' => $email,
         );
 
     	if ($cekEmail > 0) {

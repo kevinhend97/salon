@@ -11,33 +11,47 @@
 |
 */
 
+// Homepage
+
 Route::get('/', function () {
     return view('homepage');
 });
+
+// about
 
 Route::get('/about', function () {
     return view('about');
 });
 
+// contact
+
 Route::get('/contact', function(){
 	return view('contact');
 });
+
+// Gallery
 
 Route::get('/gallery', function(){
 	return view('gallery');
 });
 
-Route::get('/booking', function(){
-	return view('booking');
-});
+// Reservation
+
+Route::get('/reservation', 'ReservationController@index')->name('reservation.index');
+
+// service
 
 Route::get('/service', function(){
 	return view('service');
 });
 
+// suscribe
+
 Route::post('/suscribe', 'HomepageController@emailSuscribe')->name('suscribe.store');
 
 Auth::routes();
+
+// Bagian Backed Salon Violet
 
 Route::group(['middleware' => ['auth']], function(){
 	Route::get('/home', 'HomeController@index')->name('home');
@@ -57,24 +71,8 @@ Route::group(['middleware' => ['auth']], function(){
 	//paket controller
 	Route::get('paket/data','PaketController@listData')->name('paket.data');
 	Route::resource('paket', 'PaketController');	
+
+	// Galeri Controller
+	Route::get('galeri/data','GaleriController@listData')->name('galeri.data');
+	Route::resource('galeri', 'GaleriController');	
 });
-
-// test E-mail
-Route::get('sendemail', function () {
-
-    $data = array(
-        'name' => "Learning Laravel",
-    );
-
-    Mail::send('emails.welcome', $data, function ($message) {
-
-        $message->from('hendrawankevin97@gmail.com', 'Salon Violet');
-
-        $message->to('amedia92@gmail.com')->subject('Terimakasih Telah Berlangganan');
-
-    });
-
-    return "Your email has been sent successfully";
-
-});
-
