@@ -47,13 +47,13 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $tambahGambar = new Galeri;
-        $tambahGambar->nama_gambar = $request->namaGambar;
+        $tambahGambar->nama_gambar = $request['namaGambar'];
 
         // Jika Memiliki Sebuah Foto
         if ($request->hasFile('gambar')) 
         {
             $gambarGaleri = $request->file('gambar');
-            $namaGambar = "Gambar".$request['gambar']."".time().'.'.request()
+            $namaGambar = $request['namaGambar']."".time().'.'.request()
                             ->gambar
                             ->getClientOriginalExtension();
             $lokasiPenyimpananFile = storage_path('uploads/galeri');
@@ -64,6 +64,9 @@ class GaleriController extends Controller
         }
 
         $tambahGambar->save();
+
+        echo json_encode(array('msg'=>'success'));
+        
     }
 
     /**
@@ -90,22 +93,23 @@ class GaleriController extends Controller
         $ubahGaleri = Galeri::find($id);
         $ubahGaleri->nama_gambar = $request->namaGambar;
 
-        $namaGambarGaleri = Paket::where('id_galeri', $id)->pluck('gambar')->first();
-        unlink(storage_path('../storage/uploads/galeri/'.$namaGambarGaleri));
+        // unlink(storage_path('../storage/uploads/galeri/'.$ubahGaleri->gambar));
 
         // Jika Memiliki Sebuah Foto/Gambar
         if ($request->hasFile('gambar')) 
         {
             $gambarGaleri = $request->file('gambar');
-            $namaGambar = "Gambar".$request['gambar']."".time().'.'.request()
+            $namaGambar = "Gambar".$request['namaGambar']."".time().'.'.request()
                             ->gambar
                             ->getClientOriginalExtension();
             $lokasiPenyimpananFile = storage_path('uploads/galeri');
             
             $gambarGaleri->move($lokasiPenyimpananFile, $namaGambar);
             
-            $tambahGambar->gambar = $namaGambar;
+            $ubahGaleri->gambar = $namaGambar;
         }
+
+        $ubahGaleri->update();
     }
 
     /**
@@ -117,8 +121,10 @@ class GaleriController extends Controller
     public function destroy($id)
     {
         $galeri = Galeri::find($id);
-        $namaGambarGaleri = Paket::where('id_galeri', $id)->pluck('gambar')->first();
+        $namaGambarGaleri = Galeri::where('id_galeri', $id)->pluck('gambar')->first();
         unlink(storage_path('../storage/uploads/galeri/'.$namaGambarGaleri));
+
+        $galeri->delete();
 
     }
 }

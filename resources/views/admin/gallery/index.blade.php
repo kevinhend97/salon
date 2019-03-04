@@ -43,7 +43,7 @@ Galeri
       </div>
     </section>
 
-@include('admin.layanan.form')
+@include('admin.gallery.form')
 
 
 @endsection
@@ -71,7 +71,12 @@ Galeri
       $.ajax({
         url : url,
         type : "POST",
-        data : $('#modal-form form').serialize(),
+        data : new FormData($('#modal-form form')[0]),
+        dataType : 'JSON',
+        async : false,
+        processData : false,
+        contentType : false,
+        
         success : function(data){
           $('#modal-form').modal('hide');
           table.ajax.reload();
@@ -121,7 +126,7 @@ function editForm(id)
       $('#modal-form').modal('show');
       $('.modal-title').text('Edit Gambar');
 
-      $('#id').val(data.id_gallery);
+      $('#id').val(data.id_galeri);
       $('#namaGambar').val(data.nama_gambar);
     },
     error : function(){
