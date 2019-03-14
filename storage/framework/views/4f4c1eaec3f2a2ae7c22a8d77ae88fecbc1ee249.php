@@ -33,16 +33,19 @@ and skin care services will suit every beauty need.</p>
 <!-- wthree-mid -->
 	<div class="wthree-mid jarallax">
 		<div class="container">
-			<h3>Nisl amet dolor sit ipsum veroeros sed blandit</h3>
-			<p>Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+		<h3>Tentang Salon Violet</h3>
+			<p>Salon Violet berdiri sejak tahun 2008, kami menyediakan galeri foto agar anda dapat melihat beberapa hasil pekerjaan kami.</p>
+			<div class="botton">
+				<a href="<?php echo e(url('/contact')); ?>">Hubungi Kami</a>
+			</div>
 		</div>
 	</div>
 <!-- //wthree-mid -->
 
 <!-- Team section -->
 <section class="team" >
-	<div class="container">
 		<div class="wthree_head_section">
+	<div class="container">
 				<h3 class="w3l_header">Our <span>Team</span></h3>
 				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
 and skin care services will suit every beauty need.</p>

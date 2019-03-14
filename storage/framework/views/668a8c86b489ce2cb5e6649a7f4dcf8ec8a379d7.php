@@ -50,10 +50,10 @@
 					</div>
 					<div class="address">
 						<p>Jalan Jend. Soedirman 160.</p>
-						<p class="para-y"><a href="<?php echo e(url('/about')); ?>">Dapatkan Info Lengkapnya</a></p>
+						<p class="para-y"><a href="<?php echo e(url('/contact')); ?>">Dapatkan Info Lengkapnya</a></p>
 					</div>
 					<div class="nav-contact-w3ls">
-						<p>+62 1111 2222 333<span class="fa fa-phone" aria-hidden="true"></span></p>
+						<p>+62 856 4796 0654<span class="fa fa-phone" aria-hidden="true"></span></p>
 						<p class="para-y"><a href="mailto:info@example.com">info@example.com</a><span class="fa fa-envelope-o" aria-hidden="true"></span></p>
 					</div>
 					<div class="clearfix"></div>
@@ -82,8 +82,8 @@
 						<li><a class="active" href="<?php echo e(url('/')); ?>">Home</a></li>
 						<li><a href="<?php echo e(url('about')); ?>">Tentang Kami</a></li>
 						<li><a href="<?php echo e(url('/service')); ?>">Layanan</a></li>
-						<li><a href="<?php echo e(route('reservation.index')); ?>">Reservasi</a></li>
-						<li><a href="<?php echo e(url('/gallery')); ?>">Galeri</a></li>
+						<li><a href="<?php echo e(route('page.reservation')); ?>">Reservasi</a></li>
+						<li><a href="<?php echo e(route('page.galeri')); ?>">Galeri</a></li>
 						<li><a href="<?php echo e(url('/contact')); ?>">Kontak</a></li>
 					</ul>
 
@@ -149,7 +149,7 @@
 					    <ul class="con_inner_text">
 							<li><span class="fa fa-map-marker" aria-hidden="true"></span>Jalan Jendral Soedirman, Cilacap Selatan <label> Kota Cilacap.</label></li>
 							<li><span class="fa fa-envelope-o" aria-hidden="true"></span> <a href="mailto:info@example.com">info@example.com</a></li>
-							<li><span class="fa fa-phone" aria-hidden="true"></span> +62 1111 2222 333</li>
+							<li><span class="fa fa-phone" aria-hidden="true"></span> +62 856 4796 0654</li>
 						</ul>
 
 					<ul class="social_agileinfo">

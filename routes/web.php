@@ -31,13 +31,11 @@ Route::get('/contact', function(){
 
 // Gallery
 
-Route::get('/gallery', function(){
-	return view('gallery');
-});
+Route::get('gallery', 'GaleriController@pageGaleri')->name('page.galeri');
 
 // Reservation
 
-Route::get('/reservation', 'ReservationController@index')->name('reservation.index');
+Route::get('/reservation', 'ReservationController@index')->name('page.reservation');
 
 // service
 

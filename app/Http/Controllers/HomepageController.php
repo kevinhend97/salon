@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Suscribe;
+use App\Paket;
+use App\Layanan;
 use Mail;
 
 class HomepageController extends Controller

@@ -13,66 +13,13 @@
 and skin care services will suit every beauty need.</p>
 			</div>
 			<div class="gallery-info">
+			@foreach($galeri as $data)	
 				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p1.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p1.jpg') }}" alt="" class="img-responsive zoom-img">
+					<a href="../storage/uploads/galeri/{{ $data->gambar }}" class="gallery-box" data-lightbox="example-set" data-title="">
+						<img src="../storage/uploads/galeri/{{ $data->gambar }}" alt="{{ $data->nama_gambar }}" class="img-responsive zoom-img">
 					</a>
 				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p2.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p2.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p3.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p3.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p4.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p4.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p5.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p5.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p6.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p6.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p7.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p7.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p8.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p8.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p9.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p9.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p10.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p10.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p11.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p11.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
-				<div class="col-md-3 gallery-grids">
-					<a href="{{ asset('homepage/images/p12.jpg') }}" class="gallery-box" data-lightbox="example-set" data-title="">
-						<img src="{{ asset('homepage/images/p12.jpg') }}" alt="" class="img-responsive zoom-img">
-					</a>
-				</div>
+			@endforeach
 				<div class="clearfix"> </div>	
 			</div>
 		</div>

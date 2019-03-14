@@ -53,8 +53,7 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 				<div class="col-md-6 area-inner">
 					<div class="area-right p3">
 						<h5>NAIL CARE</h5>
-						<p class="para-w3-agile">Phasellus sed iaculis nibh, non suscipit tortor. Aenean ante massa, lobortis et dolor eget, sollicitudin luctus arcu.
-							Donec eros tortor, ultrices in lectus quis, aliquet commodo lectus.</p>
+						<p class="para-w3-agile">Percantik kukumu dengan potongan dan riasan cantik dari kami</p>
 					</div>
 					<div class="area-img3">
 					</div>
@@ -62,8 +61,7 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 				<div class="col-md-6 area-inner">
 					<div class="area-right p4">
 						<h5>HAIR CARE</h5>
-						<p class="para-w3-agile">Phasellus sed iaculis nibh, non suscipit tortor. Aenean ante massa, lobortis et dolor eget, sollicitudin luctus arcu.
-							Donec eros tortor, ultrices in lectus quis, aliquet commodo lectus.</p>
+						<p class="para-w3-agile">Perawatan rambut yang cocok untuk mempercantikmu</p>
 					</div>
 					<div class="area-img4">
 					</div>
@@ -92,9 +90,10 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 				<p>Percantik diri dengan perawatan kami yang sudah kami sediakan untuk rambut cantikmu.</p>
 			</div>
 			<div class="pricing-grids-info">
+							@foreach($paket as $data)
 								<div class="pricing-grid grid-one">
 									<div class="w3ls-top">
-										<h3>Basic</h3> 
+										<h3>{{ $data->nama_paket }}</h3> 
 									</div>
 									<div class="w3ls-bottom">
 										<ul class="count">
@@ -104,66 +103,10 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 											<li>Nails</li>
 											<li>Styling</li>
 										</ul>
-										<h4> 200<span class="sup">$</span> </h4>
-										<div class="more">
-											<a href="contact.html">Contact Now</a>				
-										</div>
+										<h4> IDR {{ number_format($data->harga) }} </h4>
 									</div>
 								</div>
-								<div class="pricing-grid grid-two">
-									<div class="w3ls-top">
-										<h3>Classic</h3> 
-									</div>
-									<div class="w3ls-bottom">
-										<ul class="count">
-											<li>Hair Extension</li>
-											<li>Makeup Application</li>
-											<li>Facial</li>
-											<li>Nails</li>
-											<li>Styling</li>
-										</ul>
-										<h4> 350<span class="sup">$</span> </h4>
-										<div class="more">
-											<a href="contact.html">Contact Now</a>				
-										</div>
-									</div>
-								</div>
-								<div class="pricing-grid grid-three">
-									<div class="w3ls-top">
-										<h3>Gold</h3> 
-									</div>
-									<div class="w3ls-bottom">
-										<ul class="count">
-											<li>Hair Extension</li>
-											<li>Makeup Application</li>
-											<li>Facial</li>
-											<li>Nails</li>
-											<li>Styling</li>
-										</ul>
-										<h4> 500<span class="sup">$</span> </h4>
-										<div class="more">
-											<a href="contact.html">Contact Now</a>				
-										</div>
-									</div>
-								</div>
-								<div class="zb pricing-grid grid-four">
-									<div class="w3ls-top">
-										<h3>Platinum</h3> 
-									</div>
-									<div class="w3ls-bottom">
-										<ul class="count">
-											<li>Hair Extension</li>
-											<li>Makeup Application</li>
-											<li>Facial</li>
-											<li>Nails</li>
-											<li>Styling</li>
-										</ul>
-										<h4> 800<span class="sup">$</span> </h4>
-										<div class="more">
-											<a href="contact.html">Contact Now</a>				
-										</div>
-									</div>
-								</div>
+							@endforeach
 								<div class="clearfix"> </div> 
 				<!--End-slider-script-->
 			</div>
@@ -176,8 +119,7 @@ dan layanan perawatan lainnya yang sesuai dengan setiap kebutuhan kecantikan and
 		<div class="container">
 		<div class="wthree_head_section">
 				<h3 class="w3l_header two">Statistik <span>Kami</span></h3>
-				<p class="tho">Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
-and skin care services will suit every beauty need.</p>
+				<p class="tho">Hasil dan prestasi pelayanan kami di masyarakatn dan dunia</p>
 			</div>
 		  <div class="wthree-agile-counter">
 		  <div class="col-md-3 w3_agile_stats_grid-top">
@@ -189,7 +131,7 @@ and skin care services will suit every beauty need.</p>
 					<p class="counter">324</p> 
 				</div>
 				<div class="clearfix"> </div>
-				<h4>Services</h4>
+				<h4>Pelayanan</h4>
 			</div>
 		</div>
 		<div class="col-md-3 w3_agile_stats_grid-top">
@@ -201,7 +143,7 @@ and skin care services will suit every beauty need.</p>
 					<p class="counter">543</p> 
 				</div>
 				<div class="clearfix"> </div>
-				<h4>Happy Clients</h4>
+				<h4>Pelanggan</h4>
 			</div>
 		</div>
 		<div class="col-md-3 w3_agile_stats_grid-top">
@@ -213,7 +155,7 @@ and skin care services will suit every beauty need.</p>
 					<p class="counter">434</p> 
 				</div>
 				<div class="clearfix"> </div>
-				<h4>People Loved</h4>
+				<h4>Like Pelanggan</h4>
 			</div>
 		</div>
 		<div class="col-md-3 w3_agile_stats_grid-top">
@@ -225,7 +167,7 @@ and skin care services will suit every beauty need.</p>
 					<p class="counter">234</p> 
 				</div>
 				<div class="clearfix"> </div>
-				<h4>Win Awards</h4>
+				<h4>Penghargaan</h4>
 			</div>
 		</div>
 			<div class="clearfix"> </div>
@@ -240,69 +182,62 @@ and skin care services will suit every beauty need.</p>
 			<!-- Owl-Carousel -->
 			<div class="wthree_head_section">
 				<h3 class="w3l_header">Penilaian <span>orang-orang tantang kami</span></h3>
-				<p>Treat yourself to a facial or celebrating a special occasion, aromatherapy, our beauty 
-and skin care services will suit every beauty need.</p>
+				<p>Pendapat orang-orang mengenai pelayanan kami</p>
 			</div>
 			<div id="owl-demo" class="owl-carousel text-center clients-right">
 				<div class="item g1">
 					<div class="agile-dish-caption">
-						<h4>John Smith</h4>
-						<span>Lorem Ipsum</span>
+						<h4>Vania Indriana</h4>
+						<span>Mahasiswa</span>
 					</div>
 					<img class="lazyOwl" src="images/c1.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Pelayanan yang sangat nyaman dengan banyak penawaran serta pekerja yang profesional</p>
 				</div>
 				<div class="item g1">
 					<div class="agile-dish-caption">
-						<h4>Jecy Deoco</h4>
-						<span>Lorem Ipsum</span>
+						<h4>Karine Lestari</h4>
+						<span>Model</span>
 					</div>
 					<img class="lazyOwl" src="images/c2.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Saya sangat senang dengan pelayanan yang membuat saya menjadi cantik dan anggun</p>
 				</div>
 				<div class="item g1">
 					<div class="agile-dish-caption">
 						<h4>Devid Fahim</h4>
-						<span>Lorem Ipsum</span>
+						<span>Pekerja Kantoran</span>
 					</div>
 					<img class="lazyOwl" src="images/c3.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Saya senang istri saya make up disini untuk pesta karna membuat saya pangling dengan istri saya</p>
 				</div>
 				<div class="item g1">
 					<div class="agile-dish-caption">
 						<h4>Honey Jisa</h4>
-						<span>Lorem Ipsum</span>
+						<span>DJ</span>
 					</div>
 					<img class="lazyOwl" src="images/c1.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Ketepatan dan Kualitas adalah yang terbaik</p>
 				</div>
 				<div class="item g1">
 					<div class="agile-dish-caption">
-						<h4>Jecy Deoco</h4>
-						<span>Lorem Ipsum</span>
+						<h4>Agnes Lie</h4>
+						<span>Mahasiswa</span>
 					</div>
 					<img class="lazyOwl" src="images/c2.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Saya merasa senang dengan pelayanannya</p>
 				</div>
 				<div class="item g1">
 					<div class="agile-dish-caption">
-						<h4>Devid Fahim</h4>
-						<span>Lorem Ipsum</span>
+						<h4>Cindy Adara</h4>
+						<span>Mahasiswa</span>
 					</div>
 					<img class="lazyOwl" src="images/c3.jpg" alt="" />
 					<div class="clearfix"></div>
-					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Duis nulla nulla, faucibus id diam ac, luctus sodales purus.
-						Quisque nibh ipsum,Ut accumsan.</p>
+					<p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span>Membuat momment terbaik saya menjadi cantik hehehe... thanks</p>
 				</div>
 			</div>
 			<!--// Owl-Carousel -->

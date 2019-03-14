@@ -110,6 +110,8 @@ class GaleriController extends Controller
         }
 
         $ubahGaleri->update();
+
+        echo json_encode(array('msg'=>'success'));
     }
 
     /**
@@ -126,5 +128,14 @@ class GaleriController extends Controller
 
         $galeri->delete();
 
+    }
+
+    // Galeri Page
+
+    public function pageGaleri()
+    {
+        $galeri = Galeri::orderBy('updated_at', 'desc')->take(12)->inRandomOrder()->get();
+
+        return view('gallery', compact('galeri'));
     }
 }
